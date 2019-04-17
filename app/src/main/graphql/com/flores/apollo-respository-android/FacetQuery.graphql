@@ -1,0 +1,64 @@
+query Facet($text: String,
+  $operationTypeAlias: String,
+  $propertyTypeAlias: String,
+  $propertySubtypeAlias: String,
+  $priceAmountPen: Float,
+  $bedroomsNumber: Int,
+  $bathroomsNumber: Int,
+  $garageNumber: Int,
+  $priceCurrency: String,
+  $priceAmountMin: Float,
+  $priceAmountMax: Float,
+  $totalAreaMin: Float,
+  $totalAreaMax: Float,
+  $antiqueValueMin: Float,
+  $antiqueValueMax: Float,
+  $publicationType: Int,
+  $departmentAlias: String,
+  $provinceAlias: String,
+  $districAlias: [String],
+  $urbanizationOrBeachAlias: [String],
+  $latitude: Float,
+  $longitude: Float,
+  $distance: Float,
+  $maintenanceMin: Float,
+  $maintenanceMax: Float,
+  $propertyStatus: Int,
+  $elevator: Int,
+  $petsAllowed: Int,
+  $commercialUse: Int,
+  $profesionalUse: Int,
+  $services: [String],
+  $ambients: [String],
+  $additionals: [String],
+  $commonAreas: [String],
+  $general: [String],
+  $typeAdvertiser: Int) {
+pointFacet(facets: {},
+  filters: {freeSearch: $text,
+    operationTypeAlias: $operationTypeAlias,
+    propertyTypeAlias: $propertyTypeAlias,
+    propertySubtypeAlias: $propertySubtypeAlias,
+    bedroomsNumber: $bedroomsNumber, bathroomsNumber: $bathroomsNumber, garageNumber: $garageNumber, priceCurrency: $priceCurrency, priceAmount: {min: $priceAmountMin, max: $priceAmountMax}, antique: {min: $antiqueValueMin, max: $antiqueValueMax}, totalArea: {min: $totalAreaMin, max: $totalAreaMax}, publicationType: $publicationType, departmentAlias: $departmentAlias, provinceAlias: $provinceAlias, districtAlias: $districAlias, urbanizationOrBeachAlias: $urbanizationOrBeachAlias, geoSpatial: {latitude: $latitude, longitude: $longitude, distance: $distance}, maintenanceAmount: {min: $maintenanceMin, max: $maintenanceMax}, propertyStatus: $propertyStatus, lift: $elevator, petsAllowed: $petsAllowed, commercialUse: $commercialUse, professionalUse: $profesionalUse, services: $services, ambients: $ambients, additionals: $additionals, commonAreas: $commonAreas, general: $general, typeAdvertiser: $typeAdvertiser, priceAmountPen: $priceAmountPen}, intervals: {totalArea: ["1_50", "51_100", "101_150", "151_200", "201_*"], hectares: ["1_5", "6_10", "11_20", "21_50", "51_*"], antique: ["0_0", "1_5", "6_10", "11_15", "16_20", "21_30", "31_*"], maintenanceAmount: ["0_*"]}) {
+        metadata {
+            resultFound
+        }
+        facets {
+
+            bedroomsNumber {
+                alias
+                body {
+                key
+                name
+                }
+            }
+            bathroomsNumber {
+                alias
+                body {
+                key
+                name
+                }
+            }
+        }
+    }
+}
